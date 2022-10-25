@@ -17,7 +17,7 @@ const TabIcons = ({ focused, icon, iconStyle, label, isTrade }) => {
       >
         <Image
           source={icon}
-          resizeMethod="resize"
+          resizeMode="contain"
           style={{
             width: 25,
             height: 25,
