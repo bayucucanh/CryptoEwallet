@@ -2,9 +2,10 @@ import { StyleSheet, Text, View, Animated } from "react-native";
 import React, { useEffect, useRef } from "react";
 import { COLORS, SIZES, icons } from "../constants";
 import { IconTextButton } from "../components";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const MainLayout = ({ children }) => {
+  const dispatch = useDispatch()
   const isTradeModalVisible = useSelector(
     (state) => state.tabReducer.isTradeModalVisible
   );
@@ -25,6 +26,8 @@ const MainLayout = ({ children }) => {
         useNativeDriver: false,
       }).start();
     }
+
+    useDispatch
   }, [isTradeModalVisible]);
 
   const modalY = modalAnimatedValue.interpolate({
