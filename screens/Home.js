@@ -1,6 +1,6 @@
 import { useFocusEffect } from "@react-navigation/native";
 import React, { useCallback, useEffect } from "react";
-import { View, Text } from "react-native";
+import { View, Text, StatusBar } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { BallanceInfo, IconTextButton } from "../components";
 import { COLORS, icons, SIZES } from "../constants";
@@ -44,7 +44,7 @@ const Home = () => {
           displayAmount={totalWallet}
           changePct={perChange}
           containerStyle={{
-            marginTop: 50,
+            marginTop: 7,
           }}
         />
 
@@ -81,6 +81,7 @@ const Home = () => {
 
   return (
     <MainLayout>
+      <StatusBar animated={true} backgroundColor={COLORS.gray} />
       <View
         style={{
           flex: 1,

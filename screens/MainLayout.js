@@ -32,7 +32,7 @@ const MainLayout = ({ children }) => {
 
   const modalY = modalAnimatedValue.interpolate({
     inputRange: [0, 1],
-    outputRange: [SIZES.height, SIZES.height - 300],
+    outputRange: [SIZES.height, SIZES.height - 280],
   });
 
   return (

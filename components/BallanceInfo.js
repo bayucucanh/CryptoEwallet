@@ -10,13 +10,13 @@ const BallanceInfo = ({ title, displayAmount, changePct, containerStyle }) => {
 
       {/* Figure */}
       <View style={{ flexDirection: "row", alignItems: "flex-end" }}>
-        <Text style={{ ...FONTS.h3, color: COLORS.lightGray3 }}>$</Text>
+        <Text style={{ ...FONTS.h3, color: COLORS.lightGray3 }}>Rp</Text>
         <Text
           style={{ ...FONTS.h2, color: COLORS.white, marginLeft: SIZES.base }}
         >
           {displayAmount.toLocaleString()}
         </Text>
-        <Text style={{ ...FONTS.h3, color: COLORS.lightGray3 }}>USD</Text>
+        <Text style={{ ...FONTS.h3, color: COLORS.lightGray3 }}>IDR</Text>
       </View>
 
       {/* Change Percentage */}
@@ -56,7 +56,7 @@ const BallanceInfo = ({ title, displayAmount, changePct, containerStyle }) => {
             color: COLORS.lightGray3,
             ...FONTS.h5,
           }}
-        >7d change</Text>
+        >1h change</Text>
       </View>
     </View>
   );
