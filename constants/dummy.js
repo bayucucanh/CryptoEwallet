@@ -1,11 +1,15 @@
 export const holdings = [
     {
         id: "cardano",
-        qty: 30
+        qty: 300
     },
     {
         id: "dogecoin",
-        qty: 12
+        qty: 300
+    },
+    {
+        id: "binancecoin",
+        qty: 0.18
     }
 ]
 

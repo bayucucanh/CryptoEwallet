@@ -1,6 +1,7 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { COLORS, FONTS, icons, SIZES } from "../constants";
+import FormatRupiah from "../utils/Format/FormatRupiah";
 
 const BallanceInfo = ({ title, displayAmount, changePct, containerStyle }) => {
   return (
@@ -14,7 +15,7 @@ const BallanceInfo = ({ title, displayAmount, changePct, containerStyle }) => {
         <Text
           style={{ ...FONTS.h2, color: COLORS.white, marginLeft: SIZES.base }}
         >
-          {displayAmount.toLocaleString()}
+          {FormatRupiah(displayAmount)}
         </Text>
         <Text style={{ ...FONTS.h3, color: COLORS.lightGray3 }}>IDR</Text>
       </View>

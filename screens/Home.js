@@ -7,6 +7,7 @@ import { BallanceInfo, Chart, IconTextButton } from "../components";
 import { COLORS, FONTS, icons, SIZES } from "../constants";
 import dummyData from "../constants/dummy";
 import { getCoinMarkets, getHoldings } from "../stores/market/marketAction";
+import FormatRupiah from "../utils/Format/FormatRupiah";
 import { MainLayout } from "./";
 
 const Home = () => {
@@ -53,7 +54,7 @@ const Home = () => {
           displayAmount={totalWallet}
           changePct={perChange}
           containerStyle={{
-            marginTop: 7,
+            marginTop: 5,
           }}
         />
 
@@ -185,7 +186,7 @@ const Home = () => {
                       ...FONTS.h4,
                     }}
                   >
-                    Rp.{item.current_price}
+                    Rp.{FormatRupiah(item.current_price)}
                   </Text>
                   <View
                     style={{
