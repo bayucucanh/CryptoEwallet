@@ -29,7 +29,7 @@ export const getHoldings =
     currency = "idr",
     orderBy = "market_cap_desc",
     sparkline = true,
-    priceChangePercentage = "1h",
+    priceChangePercentage = "7d",
     perPage = 10,
     page = 1
   ) =>
@@ -57,7 +57,7 @@ export const getHoldings =
 
               let price7d =
                 item.current_price /
-                (1 + item.price_change_percentage_24h * 0.01);
+                (1 + item.price_change_percentage_7d_in_currency * 0.01);
 
               return {
                 id: item.id,
@@ -67,8 +67,8 @@ export const getHoldings =
                 current_price: item.current_price,
                 qty: coin.qty,
                 total: coin.qty * item.current_price,
-                price_change_percentage_24h:
-                  item.price_change_percentage_24h,
+                price_change_percentage_7d_in_currency:
+                  item.price_change_percentage_7d_in_currency,
                 holdings_value_change_7d:
                   (item.current_price - price7d) * coin.qty,
                 sparkline_in_7d: {
@@ -107,7 +107,7 @@ export const getCoinMarkets =
     currency = "idr",
     orderBy = "market_cap_desc",
     sparkline = true,
-    priceChangePercentage = "1h",
+    priceChangePercentage = "7d",
     perPage = 10,
     page = 1
   ) =>

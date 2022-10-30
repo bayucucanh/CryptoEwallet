@@ -2,10 +2,10 @@ import { useFocusEffect } from "@react-navigation/native";
 import React, { useCallback, useEffect } from "react";
 import { View, Text, StatusBar } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-import { BallanceInfo, IconTextButton } from "../components";
+import { BallanceInfo, Chart, IconTextButton } from "../components";
 import { COLORS, icons, SIZES } from "../constants";
 import dummyData from "../constants/dummy";
-import { getHoldings } from "../stores/market/marketAction";
+import { getCoinMarkets, getHoldings } from "../stores/market/marketAction";
 import { MainLayout } from "./";
 
 const Home = () => {
@@ -13,6 +13,7 @@ const Home = () => {
   const totalWallet = useSelector((state) =>
     state.marketReducer.myHoldings.reduce((a, b) => a + (b.total || 0), 0)
   );
+  const coins = useSelector((state) => state.marketReducer.coins);
   const valueChange = useSelector((state) =>
     state.marketReducer.myHoldings.reduce(
       (a, b) => a + (b.holdings_value_change_7d || 0),
@@ -24,8 +25,9 @@ const Home = () => {
   useFocusEffect(
     useCallback(() => {
       dispatch(getHoldings(dummyData.holdings));
+      dispatch(getCoinMarkets());
       console.log(totalWallet);
-    })
+    }, [])
   );
 
   const renderWalletInfoSection = () => {
@@ -49,30 +51,32 @@ const Home = () => {
         />
 
         {/* Buttons */}
-        <View style={{
-          flexDirection: 'row',
-          marginTop: 30,
-          marginBottom: -15,
-          paddingHorizontal: SIZES.radius
-        }}>
-          <IconTextButton 
+        <View
+          style={{
+            flexDirection: "row",
+            marginTop: 30,
+            marginBottom: -15,
+            paddingHorizontal: SIZES.radius,
+          }}
+        >
+          <IconTextButton
             label="Transfer"
             icon={icons.send}
-            containerStyle={{ 
+            containerStyle={{
               flex: 1,
               height: 40,
-              marginRight: SIZES.radius
-             }}
-             onPress={() => console.log("Transfer")}
+              marginRight: SIZES.radius,
+            }}
+            onPress={() => console.log("Transfer")}
           />
-          <IconTextButton 
+          <IconTextButton
             label="Withdraw"
             icon={icons.withdraw}
-            containerStyle={{ 
+            containerStyle={{
               flex: 1,
               height: 40,
-             }}
-             onPress={() => console.log("Withdraw")}
+            }}
+            onPress={() => console.log("Withdraw")}
           />
         </View>
       </View>
@@ -90,6 +94,14 @@ const Home = () => {
       >
         {/* Header - Wallet Info */}
         {renderWalletInfoSection()}
+
+        {/* Chart */}
+        <Chart
+          containerStyle={{
+            marginTop: 17 * 2,
+          }}
+          chartPrices={coins[0]?.sparkline_in_7d?.price}
+        />
       </View>
     </MainLayout>
   );

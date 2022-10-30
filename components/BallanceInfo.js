@@ -56,7 +56,7 @@ const BallanceInfo = ({ title, displayAmount, changePct, containerStyle }) => {
             color: COLORS.lightGray3,
             ...FONTS.h5,
           }}
-        >1h change</Text>
+        >7d change</Text>
       </View>
     </View>
   );
