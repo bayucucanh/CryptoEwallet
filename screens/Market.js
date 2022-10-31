@@ -95,7 +95,7 @@ const Tabs = ({data, scrollX}) => {
             <View
               ref={item.ref}
               style={{
-                paddingHorizontal: 5,
+                // paddingHorizontal: 5,
                 alignItems: "center",
                 justifyContent: "center",
                 height: 40,
@@ -130,7 +130,7 @@ const Market = () => {
       <View
         style={{
           marginTop: SIZES.radius,
-          marginHorizontal: SIZES.radius,
+          // marginHorizontal: SIZES.radius,
           borderRadius: SIZES.radius,
           backgroundColor: COLORS.gray,
         }}
@@ -148,7 +148,7 @@ const Market = () => {
         style={{
           flexDirection: "row",
           marginTop: SIZES.radius,
-          marginHorizontal: SIZES.radius,
+          // marginHorizontal: SIZES.radius,
         }}
       >
         <TextButton label="IDR" />
@@ -212,7 +212,7 @@ const Market = () => {
                     <View
                       style={{
                         flexDirection: "row",
-                        paddingHorizontal: SIZES.padding,
+                        // paddingHorizontal: SIZES.padding,
                         marginBottom: SIZES.radius,
                       }}
                     >
@@ -344,6 +344,7 @@ const Market = () => {
         style={{
           flex: 1,
           backgroundColor: COLORS.black,
+          paddingHorizontal: SIZES.padding,
         }}
       >
         {/* Header */}

@@ -6,7 +6,7 @@ const HeaderBar = ({title}) => {
   return (
     <View style={{ 
       height: 75,
-      paddingHorizontal: SIZES.radius,
+      // paddingHorizontal: SIZES.radius,
       justifyContent: 'flex-end'
      }}>
       <Text style={{ color: COLORS.white, ...FONTS.largeTitle }}>{title}</Text>
