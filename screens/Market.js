@@ -194,7 +194,7 @@ const Market = () => {
             <View
               style={{
                 flex: 1,
-                width: SIZES.width,
+                width: SIZES.width - 48,
               }}
             >
               <FlatList
